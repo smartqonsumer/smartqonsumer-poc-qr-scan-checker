@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Debug — anon token</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="card" style="max-width: 560px; text-align: left;">
+    <h1>Debug (dev only)</h1>
+    <div class="meta">
+      <div><span>anon_token</span></div>
+    </div>
+    <code id="token" style="display:block; margin: 8px 0 16px;"></code>
+    <table>
+      <thead>
+        <tr><th>Produit</th><th>1er scan</th><th>Dernier scan</th><th>Count</th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <p class="message" id="total" style="margin-top:16px;"></p>
+  </div>
+
+  <script type="module" src="/debug.js"></script>
+</body>
+</html>

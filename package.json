@@ -1,0 +1,20 @@
+{
+  "name": "smartqonsumer-poc-qr-scan-checker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "POC: anonymous QR scan tracking with per-product lock (one validated scan per anon token per product)",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.19.2"
+  }
+}
