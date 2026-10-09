@@ -7,11 +7,62 @@
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="card" id="card">
-    <div class="status-icon">⏳</div>
-    <h1>Vérification en cours…</h1>
-    <p class="message">Un instant.</p>
+  <div class="page">
+    <div class="card" id="card">
+      <div class="status-icon">⏳</div>
+      <h1>Vérification en cours…</h1>
+      <p class="message">Un instant.</p>
+    </div>
+
+    <div class="card" id="rule-card" style="text-align:left;">
+      <h2 class="section-title">🔒 Règle de verrouillage</h2>
+      <p class="message" style="margin:0 0 10px;">
+        Un produit ne peut être <strong>validé</strong> qu'une seule fois par visiteur anonyme.
+        Rescanner le même produit avec le même navigateur est enregistré techniquement,
+        mais ne déclenche <strong>aucune nouvelle récompense</strong>.
+      </p>
+      <p class="message" style="margin:0;">
+        <strong>Pourquoi côté serveur ?</strong> Le verrou repose sur une contrainte
+        <code>UNIQUE(anon_token, product_id)</code> en base de données, vérifiée dans une
+        transaction. Un contrôle uniquement en JavaScript serait contournable ; la contrainte
+        en base garantit qu'même deux requêtes envoyées en même temps ne peuvent pas créer
+        deux validations.
+      </p>
+    </div>
+
+    <div class="card" id="tech-card" style="text-align:left;">
+      <h2 class="section-title">🔧 Détails techniques</h2>
+      <div class="meta" id="tech-details"></div>
+      <button id="reset-token-btn" class="secondary-btn">🔄 Simuler un nouveau visiteur (nouveau token)</button>
+      <button id="reset-all-btn" class="secondary-btn danger">🗑️ Réinitialiser toutes les données (dev)</button>
+    </div>
   </div>
+
+  <style>
+    .page {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 420px;
+    }
+    body { align-items: flex-start; padding-top: 24px; }
+    .section-title { font-size: 15px; margin: 0 0 10px; }
+    .secondary-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 13px;
+    }
+    .secondary-btn.danger {
+      border-color: #7f1d1d;
+      color: #fca5a5;
+    }
+  </style>
 
   <script type="module" src="/product.js"></script>
 </body>

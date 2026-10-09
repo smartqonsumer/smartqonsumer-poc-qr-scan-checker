@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import scanRouter from "./routes/scan.js";
 import debugRouter from "./routes/debug.js";
+import qrRouter from "./routes/qr.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.join(__dirname, "..", "public");
@@ -13,6 +14,7 @@ export function createApp() {
   app.use(express.static(PUBLIC_DIR));
 
   app.use("/api", scanRouter);
+  app.use("/api", qrRouter);
 
   if (process.env.NODE_ENV !== "production") {
     app.use("/api/debug", debugRouter);

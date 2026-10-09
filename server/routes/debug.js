@@ -26,4 +26,17 @@ router.get("/anon/:anonToken", (req, res) => {
   });
 });
 
+const resetAll = db.transaction(() => {
+  db.exec(`DELETE FROM repeat_scan_events;`);
+  db.exec(`DELETE FROM product_scans;`);
+  db.exec(`DELETE FROM anonymous_visitors;`);
+});
+
+// Vide tout l'historique de scans/visiteurs pour pouvoir rejouer le scénario de
+// test depuis zéro. Dev only, cf. server/app.js.
+router.post("/reset", (_req, res) => {
+  resetAll();
+  res.json({ success: true });
+});
+
 export default router;

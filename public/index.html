@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POC QR Scan Checker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="card" style="text-align:left;">
+    <h1 style="text-align:center;">POC QR Scan Checker</h1>
+    <p class="message" style="text-align:center;">Verrouillage anonyme par produit — outils de test.</p>
+
+    <div class="meta" style="border-top:none; padding-top:0;">
+      <a class="link-row" href="/qr-display.html">📱 Afficher un QR code <span>(à ouvrir sur le mobile)</span></a>
+      <a class="link-row" href="/scan.html">🎥 Scanner un QR code <span>(webcam de l'ordinateur)</span></a>
+      <a class="link-row" href="/debug.html">🐞 Page de debug <span>(dev only)</span></a>
+    </div>
+
+    <div class="meta">
+      <a class="link-row" href="/p/PRODUCT_A">Ouvrir directement /p/PRODUCT_A</a>
+      <a class="link-row" href="/p/PRODUCT_B">Ouvrir directement /p/PRODUCT_B</a>
+    </div>
+  </div>
+
+  <style>
+    .link-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 0;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .link-row:last-child { border-bottom: none; }
+    .link-row span { color: var(--muted); font-size: 12px; }
+  </style>
+</body>
+</html>

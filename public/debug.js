@@ -26,3 +26,9 @@ if (!res.ok) {
   document.getElementById("total").textContent =
     `${data.products_scanned.length} produit(s) scanné(s), ${data.total_scans} scan(s) au total.`;
 }
+
+document.getElementById("reset-all-btn").addEventListener("click", async () => {
+  await fetch("/api/debug/reset", { method: "POST" });
+  localStorage.removeItem("sq_anon_token");
+  window.location.reload();
+});

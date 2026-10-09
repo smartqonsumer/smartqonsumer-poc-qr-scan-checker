@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QR code produit</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>QR code produit</h1>
+    <p class="message">
+      Choisis un produit, puis présente cet écran devant la webcam de ton ordinateur.
+    </p>
+
+    <div id="picker" class="picker"></div>
+
+    <img id="qr-img" alt="QR code" style="width:100%; max-width:320px; margin: 8px auto; display:block; background:#fff; border-radius:8px;" />
+
+    <div class="meta">
+      <div><span>URL encodée</span></div>
+    </div>
+    <code id="qr-url" style="display:block; word-break:break-all;"></code>
+  </div>
+
+  <style>
+    .picker {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .picker button {
+      flex: 1;
+      min-width: 100px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 14px;
+    }
+    .picker button.active {
+      border-color: var(--success);
+      color: var(--success);
+    }
+  </style>
+
+  <script type="module" src="/qr-display.js"></script>
+</body>
+</html>

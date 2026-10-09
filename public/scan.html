@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scanner QR code</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+  <div class="card" style="max-width: 480px;">
+    <h1>Scanner un QR code</h1>
+    <p class="message">
+      Autorise la webcam, puis présente l'écran du mobile (page "Afficher un QR code")
+      devant la caméra.
+    </p>
+
+    <select id="camera-select" style="display:none; width:100%; margin-bottom:12px; padding:8px; border-radius:8px; background:var(--card); color:var(--text); border:1px solid var(--border);"></select>
+
+    <div id="reader" style="width:100%; border-radius:12px; overflow:hidden;"></div>
+
+    <button id="start-btn" class="action-btn">Démarrer la caméra</button>
+    <button id="rescan-btn" class="action-btn" style="display:none;">Scanner à nouveau</button>
+
+    <div id="result" class="meta" style="display:none;"></div>
+  </div>
+
+  <style>
+    .action-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: var(--success);
+      color: #06231a;
+      font-weight: 600;
+      font-size: 15px;
+    }
+  </style>
+
+  <script type="module" src="/scan.js"></script>
+</body>
+</html>
